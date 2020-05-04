@@ -1,4 +1,6 @@
-# Dvoudenní kurz základů programování v C pro Engeto s.r.o.
+# Obecný jazyk C/C++: Základy programování
+
+Dvoudenní kurz základů programování v C a C++ připravený pro Engeto s.r.o.
 
 ## Den první
 
