@@ -9,6 +9,9 @@ int main() {
 
   if (!f.is_open()) {
     cout << "Neco se pokazilo :-(\n";
+    cout << "Enter pro konec...";
+    cin.get();
+    return 1;
   }
 
   int moje_hodina, minuta;
@@ -39,4 +42,7 @@ int main() {
   }
 
   f.close();
+  getchar();
+  cout << "Enter pro konec...";
+  cin.get();
 }
