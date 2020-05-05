@@ -1,0 +1,8 @@
+# Příklad zadání projektu programátorovi
+
+## Nástroj na přepočítávání času v různých časových pásmech
+
+### Účel
+
+Účelem tohot nástroje je pomoci při plánování meetingu pro členy týmu
+pracující v jiných časových pásmech.
