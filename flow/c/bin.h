@@ -1,0 +1,1 @@
+char* bin(char x);
