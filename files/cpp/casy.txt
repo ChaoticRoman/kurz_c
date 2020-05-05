@@ -1,0 +1,4 @@
++2
+Petr +1
+Jana -4
+Honza -5
