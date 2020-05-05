@@ -11,7 +11,8 @@ int main() {
    cout << "POCITAC: Tesi me, " << jmeno << "! Jak se mas?\nTY: ";
    cin >> nalada;
 
-   cout << "POCITAC: To me tesi, ze se mas " << nalada << "! Musim jit, " << jmeno << "... Mej se!\n";
+   cout << "POCITAC: To me tesi, ze se mas " << nalada << "! "
+       << "Musim jit, " << jmeno << "... Mej se!\n";
 
    return 0;
 }

@@ -22,5 +22,5 @@ int main() {
 
     printf("x / y = %.32f\n", x / y);
 
-//    printf("x / y = %d\n", x / y); // Chyba, interpretujeme double jako int!
+    printf("x / y = %d\n", x / y); // Pozor, pro vypis interpretujeme double jako int!
 }

@@ -39,6 +39,8 @@ int main() {
     printf("     b = %s\n", bin(b));
     printf("    !b = %s\n", bin(!b));
     printf("\n");
+    
+    printf("    !0 = %s\n\n", bin(!0));
 
     printf("     a = %s\n", bin(a));
     printf("     b = %s\n", bin(b));

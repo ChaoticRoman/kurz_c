@@ -4,8 +4,7 @@
 int main()
 {
    printf("Ukladam nasobilku...\n");
-   FILE *fptr;
-   fptr = fopen("nasobilka.txt","w");
+   FILE *fptr = fopen("nasobilka.txt", "w");
 
    for(int radek = 1; radek <= 10; radek++)
    {

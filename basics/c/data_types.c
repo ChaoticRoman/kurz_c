@@ -13,5 +13,13 @@ int main() {
     printf("tretina_d = %.32f\n", tretina_d);
     printf("tretina_ld = %.32Lf\n", tretina_ld);
     printf("pismenko = '%c'\n", pismenko);
+    printf("pismenko = '%d'\n", pismenko);
     printf("retezec = \"%s\"\n", retezec);
+
+    printf("char: %d\n", sizeof(char));
+    printf("int: %d\n", sizeof(int));
+    printf("long int: %d\n", sizeof(long int));
+    printf("float: %d\n", sizeof(float));
+    printf("double: %d\n", sizeof(double));
+    printf("long double: %d\n", sizeof(long double));
 }

@@ -24,4 +24,6 @@ int main() {
     cout << "a % b = " << a % b << endl;
 
     cout << "x / y = " << x / y << endl;
+    cout << "x / b = " << x / b << endl;
+    cout << "a / y = " << a / y << endl;
 }
