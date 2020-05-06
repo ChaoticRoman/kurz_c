@@ -3,8 +3,8 @@
 
 using namespace std;
 
-constexpr int N = 5;
-constexpr int pocet_lodi = 4;
+constexpr int N = 8;
+constexpr int pocet_lodi = 6;
 
 
 void ukaz(const char pole[N][N])
@@ -44,23 +44,39 @@ int main()
     static random_device rd;
     static mt19937 gen(rd());
     static uniform_int_distribution<> random_field(0, N-1);
+    static uniform_int_distribution<> random_direction(0, 3);
 
-    int radek, sloupec;
+    int radek, sloupec, radek2, sloupec2, smer;
     for (int lod=0; lod < pocet_lodi; lod++)
     {
+        bool ok;
         do {
+            ok = false;
             radek = random_field(gen);
             sloupec = random_field(gen);
-        } while(pole[radek][sloupec] != ' ');
+            smer = random_direction(gen);
+            switch(smer)
+            {
+                case 0: sloupec2 = sloupec; radek2 = radek + 1;
+                case 1: sloupec2 = sloupec; radek2 = radek - 1;
+                case 2: sloupec2 = sloupec + 1; radek2 = radek;
+                case 3: sloupec2 = sloupec - 1; radek2 = radek;
+            }
+            if (sloupec2 >= 0 && sloupec2 < N // TODO: pridat podminku ze se lode nesmi dotykat
+                && radek2 >= 0 && radek2 < N)
+                ok = pole[radek][sloupec] == ' '
+                    && pole[radek2][sloupec2] == ' ';
+        } while(!ok);
 
         pole[radek][sloupec] = 'L';
+        pole[radek2][sloupec2] = 'L';
     }
 
-    //ukaz(pole);  // ODSTRANIT
+    //ukaz(pole);
     ukaz(stav_hry);
     
     int pocet_zasahu = 0;
-    while (pocet_zasahu < pocet_lodi)
+    while (pocet_zasahu < 2*pocet_lodi)
     {
         while (true)
         {
