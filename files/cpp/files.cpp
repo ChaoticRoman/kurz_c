@@ -7,11 +7,10 @@ int main () {
   if (soubor.is_open()) {
     soubor << "Nova linka\n";
     soubor.close();
+    cout << "Pridali jsme linku! Soubor ted obsahuje:\n";
   }
   else
     cout << "Neco se pokazilo";
-
-  cout << "Pridali jsme linku! Soubor ted obsahuje:\n";
 
   string radek;
   ifstream soubor2("priklad.txt");
