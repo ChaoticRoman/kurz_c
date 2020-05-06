@@ -61,31 +61,40 @@ void tah_pocitace(char * pole)
 
 int main()
 {
-     char pole[N];
-     for(int i=0; i<N; ++i) pole[i] = volne;
+    char pole[N];
+    for(int i=0; i<N; ++i) pole[i] = volne;
 
-     int index;
-     char stav = volne;
-     while (stav == volne)
-     {
-         tiskni_pole(pole);
+    int index;
+    char stav = volne;
+    while (stav == volne)
+    {
+        tiskni_pole(pole);
 
-         cout << "Kam hrajes? ";
-         cin >> index;
-         pole[index] = hrac;
-         stav = zjisti_stav(pole);
-         if (stav != volne) break;
+        while(true)
+        {
+            cout << "Kam hrajes? ";
+            cin >> index;
+            if (index < 0 || index >= N)
+                cout << "Hraje se jen v poli! ";
+            else if (pole[index] != volne)
+                cout << "Hraje se jen na volne policka! ";
+            else
+                break;
+        }
+        pole[index] = hrac;
+        stav = zjisti_stav(pole);
+        if (stav != volne) break;
 
-         tah_pocitace(pole);
-         stav = zjisti_stav(pole);
-     }
+        tah_pocitace(pole);
+        stav = zjisti_stav(pole);
+    }
 
-     tiskni_pole(pole);
+    tiskni_pole(pole);
 
-     if (stav == remiza)
-         cout << "Remiza!\n";
-     else
-         cout << "Vyhral " << stav << "!\n";
+    if (stav == remiza)
+        cout << "Remiza!\n";
+    else
+        cout << "Vyhral " << stav << "!\n";
 
-     return 0;
+    return 0;
 }
