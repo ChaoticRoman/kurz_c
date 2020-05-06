@@ -3,8 +3,8 @@
 
 using namespace std;
 
-const int N = 10;
-const int pocet_lodi = 8;
+constexpr int N = 5;
+constexpr int pocet_lodi = 4;
 
 
 void ukaz(const char pole[N][N])
@@ -45,10 +45,9 @@ int main()
     static mt19937 gen(rd());
     static uniform_int_distribution<> random_field(0, N-1);
 
-
+    int radek, sloupec;
     for (int lod=0; lod < pocet_lodi; lod++)
     {
-        int radek, sloupec;
         do {
             radek = random_field(gen);
             sloupec = random_field(gen);
@@ -57,10 +56,38 @@ int main()
         pole[radek][sloupec] = 'L';
     }
 
-    ukaz(pole);  // ODSTRANIT
+    //ukaz(pole);  // ODSTRANIT
     ukaz(stav_hry);
     
-    /* DODELAT */
-
+    int pocet_zasahu = 0;
+    while (pocet_zasahu < pocet_lodi)
+    {
+        while (true)
+        {
+            cout << "Zadej souradnice (radek a sloupec oddeleny mezerou):\n";
+            cin >> radek >> sloupec;
+            cout << "Miris na radek " << radek << " a sloupec " << sloupec << endl;
+            if (radek < 0 || sloupec < 0 || radek >= N || sloupec >= N)
+                cout << "Strilej jen do pole!\n";
+            else if (stav_hry[radek][sloupec] != '?')
+                cout << "Tam uz si strilel!\n";
+            else
+                break;
+        }
+        if (pole[radek][sloupec] == ' ')
+        {
+            cout << "Voda!\n";
+            stav_hry[radek][sloupec] = ' ';
+        }
+        if (pole[radek][sloupec] == 'L')
+        {
+            cout << "Zasah!\n";
+            stav_hry[radek][sloupec] = '*';
+            ++pocet_zasahu;
+        }
+        ukaz(stav_hry);
+    }
+    cout << "Gratulace!\n";
+    
     return 0;
 }
